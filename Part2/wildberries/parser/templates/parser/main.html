@@ -1,0 +1,30 @@
+{% extends 'parser/base.html'%}
+
+{% block title %}
+История запросов
+{% endblock %}
+
+{% block content %}
+    <div class="mb-4 py-6 px-6">
+        <h1 class="text-xl">История запросов</h1>
+
+        {% if products %}
+            <div class="mt-6 flex justify-between">
+                <p class="pl-6 py-4 px-2 bg-gray-200 font-semibold w-96">ID запроса</p>
+                <p class="pl-6 py-4 px-2 bg-gray-200 font-semibold w-96">Артикул товара</p>
+                <p class="pl-6 pr-6 py-4 px-2 bg-gray-200 font-semibold w-96">Бренд товара</p>
+                <p class="pl-12 py-4 px-2 bg-gray-200 font-semibold w-full">Название артикула</p>
+            </div>
+            {% for product in products %}
+                <div class="flex justify-between">
+                    <p class="pl-6 py-2 px-2 w-96">{{ product.id }}</p>
+                    <p class="pl-6 py-2 px-2 w-96">{{ product.article }}</p>
+                    <p class="pl-6 pr-6 py-2 px-2 w-96">{{ product.brand }}</p>
+                    <p class="pl-12 py-2 px-2 w-full">{{ product.title }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="mt-6 px-2">Пока ещё не было совершено ни одного запроса...</p>
+        {% endif %}
+    </div>
+{% endblock %}

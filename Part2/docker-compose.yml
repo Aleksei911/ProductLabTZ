@@ -1,0 +1,25 @@
+services:
+  web-app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./wildberries:/wildberries
+    environment:
+      - DB_HOST=database
+      - DB_NAME=wildberries
+      - DB_USER=dbuser
+      - DB_PASS=pass
+
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+    depends_on:
+      - database
+
+  database:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=wildberries
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=pass

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.tailwindcss.com"></script>
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+      <nav class="py-6 px-20 flex justify-between bg-teal-500">
+          <a href="{% url 'main' %}" class="text-white text-xl">История запросов</a>
+          <div class="space-x-4">
+              <a href="{% url 'one_product' %}" class="py-4 px-6 bg-teal-600 rounded-xl text-white">Найти один товар</a>
+              <a href="{% url 'products' %}" class="py-4 px-6 bg-teal-600 rounded-xl text-white">Найти несколько товаров</a>
+          </div>
+      </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    </body>
+</html>

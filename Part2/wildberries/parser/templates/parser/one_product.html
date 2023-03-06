@@ -1,0 +1,45 @@
+{% extends 'parser/base.html'%}
+
+{% block title %}
+Найти один товар
+{% endblock %}
+
+{% block content %}
+  <div class="py-6 px-6">
+    <h1 class="mb-4 text-xl">Введите артикул</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button class="py-3 px-6 bg-teal-500 text-white rounded-xl">Найти</button>
+    </form>
+
+      <br>
+      <hr>
+      <br>
+
+    {{ data }}
+
+  </div>
+{% endblock %}
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Main</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <form method="POST">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form }}-->
+<!--        <button type="submit">Search</button>-->
+<!--    </form>-->
+
+<!--    {{ data }}-->
+
+<!--</body>-->
+<!--</html>-->

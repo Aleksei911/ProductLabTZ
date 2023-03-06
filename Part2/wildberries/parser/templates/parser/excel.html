@@ -1,0 +1,63 @@
+{% extends 'parser/base.html'%}
+
+{% block title %}
+Найти несколько товаров
+{% endblock %}
+
+{% block content %}
+<div class="py-6 px-6">
+    <h1 class="mb-4 text-xl">Загрузите файл формата xlsx</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file"
+               title="Upload excel file"
+               name="excel_file"
+               style="border: 1px solid black; padding: 5px;"
+               required="required">
+        <br>
+        <br>
+            <input type="submit"
+                   value="Загрузить"
+                   class="py-3 px-6 bg-teal-500 text-white rounded-xl">
+    </form>
+    <hr>
+    <br>
+    <br>
+
+    {% for i in total %}
+    {{ i }}<br>
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+
+<!--<html>-->
+<!--<head>-->
+<!--    <title>-->
+<!--        Excel file upload and processing : Django Example : ThePythonDjango.Com-->
+<!--    </title>-->
+<!--</head>-->
+<!--<body style="margin-top: 30px;margin-left: 30px;">-->
+<!--<form method="post" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    <input type="file"-->
+<!--           title="Upload excel file"-->
+<!--           name="excel_file"-->
+<!--           style="border: 1px solid black; padding: 5px;"-->
+<!--           required="required">-->
+<!--    <p>-->
+<!--        <input type="submit"-->
+<!--               value="Upload"-->
+<!--               class="py-4 px-8 bg-teal-500 text-white rounded-xl">-->
+<!--</form>-->
+
+<!--<p></p>-->
+<!--<hr>-->
+
+<!--{% for i in total %}-->
+<!--{{ i }}<br>-->
+<!--{% endfor %}-->
+<!--</body>-->
+<!--</html>-->
